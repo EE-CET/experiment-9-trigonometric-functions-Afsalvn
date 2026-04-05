@@ -1,18 +1,17 @@
 import java.util.Scanner;
-import java.lang.Math;
 
-public class Trigonometry {
+public class TrigFunctions {
 
-    // Method to calculate Sine from degrees
+    // Method to calculate the sine of an angle given in degrees
     public static double sine(double angle) {
-        // Convert degrees to radians as required by Math.sin
+        // Math.sin expects radians, so we convert it first
         double radians = Math.toRadians(angle);
         return Math.sin(radians);
     }
 
-    // Method to calculate Cosine from degrees
+    // Method to calculate the cosine of an angle given in degrees
     public static double cosine(double angle) {
-        // Convert degrees to radians as required by Math.cos
+        // Math.cos expects radians, so we convert it first
         double radians = Math.toRadians(angle);
         return Math.cos(radians);
     }
@@ -20,17 +19,15 @@ public class Trigonometry {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         
+        // Read the angle in degrees from the first line
         if (sc.hasNextDouble()) {
-            double angleInDegrees = sc.nextDouble();
+            double angle = sc.nextDouble();
             
-            // Calling static methods directly using the class name
-            double sVal = TrigCalculator.sine(angleInDegrees);
-            double cVal = TrigCalculator.cosine(angleInDegrees);
-            
-            // Output formatting
-            System.out.println("Sine: " + sVal);
-            System.out.println("Cosine: " + cVal);
+            // Print the sine and cosine values in the exact format required
+            System.out.println("Sine: " + sine(angle));
+            System.out.println("Cosine: " + cosine(angle));
         }
+        
         sc.close();
     }
 }
